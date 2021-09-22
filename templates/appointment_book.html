@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointment book</title>
+     {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+</head>
+<body>
+<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Dashboard</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+            <!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+							<!-- Search Filter -->
+							<div class="card search-filter">
+								<div class="card-header">
+									<h4 class="card-title mb-0">Search Filter</h4>
+								</div>
+								<div class="card-body">
+                                 <form action="search_doctor" method="POST" enctype="multipart/form-data">
+                                     {% csrf_token %}
+									 <h4>Gender</h4>
+                                     <input type="radio" value="Male" name="gender">Male
+                                     <input type="radio"  value="Female" name="gender">Female
+                                      <br><br>
+									 <h4>Select Specialist</h4>
+                                     <select name="specialization">
+                                         <option selected disabled=true>---select specialization---</option>
+                                         <option>dentist</option>
+                                         <option>gynecologist</option>
+                                         <option>cardiologist</option>
+										 <option>pediatrist</option>
+										 <option>orthopedic</option>
+										  <option>urology</option>
+                                     </select>
+									 <br><br>
+									 <div class="btn-search">
+										<button type="submit" class="btn btn-block">Search</button>
+									</div>
+									 <div class="row">
+
+									 </div>
+
+                                 </form>
+
+								<div class="filter-widget">
+
+								</div>
+
+								</div>
+							</div>
+							<!-- /Search Filter -->
+
+						</div>
+
+						<div class="col-md-12 col-lg-8 col-xl-9">
+														<!-- Recent Orders -->
+							<div class="card card-table flex-fill">
+								<div class="card-header">
+									<h4 class="card-title">Doctors List</h4>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="table table-hover table-center mb-0">
+											<thead>
+											<tr>
+												<th>Doctor Name</th>
+												<th>Speciality</th>
+												<th>Education</th>
+												<th>number</th>
+												<th>Action</th>
+							<!--                                    <th>Action</th>-->
+											</tr>
+											</thead>
+											<tbody>
+
+ 															{% for info in bookmod %}
+															<tr>
+																<td>
+																	<h2 class="table-avatar">
+																		<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{info.doctors}}" alt=""></a>
+																		<a href="profile.html ">Dr.{{info.full_name}}</a>
+																	</h2>
+																</td>
+																<td>{{info.specialization}}</td>
+																<td>{{info.education}}</td>
+																<td>{{info.mobile_number}}</td>
+							<!--                                    <td>{{info.gender}}</td>-->
+																<td>
+																	<button class="btn btn-primary"><a href="select_doctor?id={{info.id}}&full_name={{info.full_name}}">select</a></button>
+																</td>
+															</tr>
+															{% endfor %}
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+							<!-- /Recent Orders -->
+						</div>
+					</div>
+				</div>
+			</div>
+</body>
+</html>

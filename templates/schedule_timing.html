@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time schedule</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+</head>
+<body>
+<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-12 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="/">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+								</ol>
+							</nav>
+							<h2 class="breadcrumb-title">Dashboard</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+
+							<!-- Profile Sidebar -->
+							<div class="profile-sidebar">
+								<div class="widget-profile pro-widget-content">
+									<div class="profile-info-widget">
+										<a href="#" class="booking-doc-img">
+											<img src="{% static 'media/patients/patient.jpg' %}" alt="User Image">
+										</a>
+										<div class="profile-det-info">
+											<h3>Richard Wilson</h3>
+
+											<div class="patient-details">
+												<h5><i class="fas fa-birthday-cake"></i> 24 Jul 1983, 38 years</h5>
+												<h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> Newyork, USA</h5>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dashboard-widget">
+									<nav class="dashboard-menu">
+										<ul>
+											<li class="active">
+												<a href="#">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fas fa-calendar-check"></i>
+													<span>Booking</span>
+												</a>
+											</li>
+											<li>
+												<a href="schedule_timing">
+													<i class="fas fa-calendar-check"></i>
+													<span>Schedule timing</span>
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<i class="fas fa-lock"></i>
+													<span>Change Password</span>
+												</a>
+											</li>
+											<li>
+												<a href="logout">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+							<!-- /Profile Sidebar -->
+
+						</div>
+					<div class="col-md-7 col-lg-8 col-xl-9">
+						<div class="card">
+							<div class="card-body">
+
+									<form>
+										<div class="col-12 col-md-12">
+
+											<div class="row form-row">
+												<div class="col-lg-12">
+
+																<div class="row">
+																<section class="col-sm-12">
+																	<div class="form-group">
+																		<label>Appointment date</label>
+																	<div class='input-group date' id='datetimepicker2'>
+																	<input type='datetime' class="form-control" />
+																	<span class="input-group-addon">
+																	<span class="glyphicon glyphicon-calendar"></span>
+																	</span>
+																	</div>
+																	</div>
+																</section>
+																</div>
+																<div class="row">
+																	<div class="col-12 col-md-6">
+																		<div class="form-group">
+																			<label>Start Time</label>
+																			<div class="input-group clockpicker">
+																				<input type="time" class="form-control"/>
+																				<span class="input-group-addon">
+																				<span class="glyphicon glyphicon-time"></span>
+																				</span>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-12 col-md-6">
+																		<div class="form-group">
+																			<label>End Time</label>
+																			<input type="time" id="appt" name="appt" class="form-control">
+																		</div>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-lg-12">
+																		<div class="card schedule-widget mb-0">
+
+																			<!-- Schedule Header -->
+																			<div class="schedule-header">
+
+																				<!-- Schedule Nav -->
+																				<div class="schedule-nav">
+																					<ul class="nav nav-tabs nav-justified">
+																						<li class="nav-item">
+																							<a class="nav-link" data-toggle="tab" href="">Sunday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link " data-toggle="tab" href="">Monday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link " data-toggle="tab" href="">Tuesday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link " data-toggle="tab" href="">Wednesday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link" data-toggle="tab" href="">Thursday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link" data-toggle="tab" href="">Friday</a>
+																						</li>
+																						<li class="nav-item">
+																							<a class="nav-link" data-toggle="tab" href="">Saturday</a>
+																						</li>
+																					</ul>
+																				</div>
+																				<!-- /Schedule Nav -->
+
+
+
+											</form>
+						</div>
+
+							</div>
+									<br><br>
+								<div class="submit-section text-center">
+										<button type="submit" class="btn btn-primary submit-btn">Save</button>
+								</div>
+
+
+								</div>
+
+															<!--/datetimepicker -->
+															<script type="text/javascript">
+																$(function() {
+																	$('#datetimepicker2').datetimepicker({format: 'YYYY-MM-DD',});
+																});
+
+															</script>
+															<!--/clockpicker -->
+															<script type="text/javascript">
+
+															$('.clockpicker').clockpicker();
+
+															</script>
+                                                            <script>
+
+                                                            $('#appt').timepicker({
+
+                                                            startTime:'9:00 am',
+                                                            maxTime:'10:30 pm',
+
+                                                            });
+                                                            </script>
+
+		<!-- jQuery -->
+		<script src="assets/js/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JS -->
+		<script src="assets/js/popper.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+
+		<!-- Sticky Sidebar JS -->
+        <script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+        <script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+
+		<!-- Select2 JS -->
+		<script src="assets/plugins/select2/js/select2.min.js"></script>
+
+		<!-- Custom JS -->
+		<script src="assets/js/script.js"></script>
+
+	</body>
+
+<!-- doccure/schedule-timings.html  30 Nov 2019 04:12:09 GMT -->
+</html>
+
+
+
+
+
+
+</body>

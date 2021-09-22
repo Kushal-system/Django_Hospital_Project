@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor list</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+			<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-9 col-9">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                    </ol>
+                </nav>
+                <h2 class="breadcrumb-title">Welcome Admin ..!</h2>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <button class="btn btn-success">
+                        <a href="doctor_register"><h4 style="color:white">Appoint New Doctor</h4></a>&nbsp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
+ <!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-5 col-lg-4 col-xl-3 theiaStickySidebar">
+
+							<!-- Profile Sidebar -->
+                            <div class="profile-sidebar " >
+                                <div class="widget-profile pro-widget-content">
+                                    {% for i in head %}
+                                    <div class="profile-info-widget">
+                                        <a href="#" class="booking-doc-img">
+                                            <img src="{{i.photo}}" alt="User Image">
+                                        </a>
+                                        <div class="profile-det-info">
+                                            <h3>Dr. {{i.fname}}</h3>
+
+                                            <div class="patient-details">
+                                                <h5 class="mb-0">{{i.address}},{{i.city}},{{i.state}},{{i.country}}-{{i.unicode}}</h5>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+								<div class="dashboard-widget " >
+									<nav class="dashboard-menu" >
+										<ul>
+
+											<li class="active">
+												<a href="admin_dashboard">
+													<i class="fas fa-columns"></i>
+													<span>Dashboard</span>
+												</a>
+											</li>
+											<li>
+												<a href="admin_appointment_list">
+													<i class="fas fa-calendar-check"></i>
+													<span>Appointments</span>
+												</a>
+											</li>
+											<li  class="active">
+												<a href="admin_doctor_list">
+													<i class="fas fa-calendar-check"></i>
+													<span>Doctors</span>
+												</a>
+											</li>
+                                            <li>
+                                                <a href="hospital_head_profile">
+                                                        <i class="fas fa-user-cog"></i>
+                                                        <span>Profile Setting</span>
+                                                    </a>
+                                            </li>
+                                            <li>
+												<a href="logout">
+													<i class="fas fa-sign-out-alt"></i>
+													<span>Logout</span>
+												</a>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
+
+							<!-- /Profile Sidebar -->
+
+						</div>
+
+
+                        <div class="col-md-7 col-lg-8 col-xl-9">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card card-table flex-fill">
+                                        <div class="card-header">
+                                             <a href="doctor_register" style=""><h4>Doctors Registration</h4></a>&nbsp
+                                             <h4>Doctors List</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-center mb-0">
+                                                    <thead>
+
+                                                    <tr>
+                                                        <th>Doctor Name</th>
+                                                        <th>Speciality</th>
+                                                        <th>Education</th>
+                                                        <th>Gender</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for i in info %}
+                                                    <tr>
+                                                        <td>
+                                                            <h2 class="table-avatar">
+                                                                <a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src="{{i.doctors}}" alt=""></a>
+                                                                <a href="profile.html">Dr.{{i.full_name}}</a>
+                                                            </h2>
+                                                        </td>
+                                                        <td>{{i.specialization}}</td>
+                                                        <td>{{i.education}}</td>
+                                                       <td>{{i.gender}}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+        </div>
+    </div>
+
+</div>
+<!-- /Page Content -->
+</div>
+<!-- /Main Wrapper -->
+
+
+
+
+
+<!-- jQuery -->
+<script src="assets/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!-- Select2 JS -->
+<script src="assets/plugins/select2/js/select2.min.js"></script>
+
+<!-- Datetimepicker JS -->
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Sticky Sidebar JS -->
+<script src="assets/plugins/theia-sticky-sidebar/ResizeSensor.js"></script>
+<script src="assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js"></script>
+
+<!-- Custom JS -->
+<script src="{% static 'media/js/script.js' %}"></script>
+
+</body>
+
+<!-- doccure/profile-settings.html  30 Nov 2019 04:12:18 GMT -->
+</html>

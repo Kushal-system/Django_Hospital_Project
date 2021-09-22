@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'media/js/script.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg header-nav">
+            <div class="navbar-header">
+                <a id="mobile_btn" href="javascript:void(0);">
+							<span class="bar-icon">
+								<span></span>
+								<span></span>
+								<span></span>
+							</span>
+                </a>
+                <a href="#" class="navbar-brand logo">
+                    <img src="{% static 'media/logo.png' %}" class="img-fluid" alt="Logo">
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <ul class="main-nav">
+                    <li class="active">
+                        <a href="#">Home</a>
+                    </li>
+                    <li class="login-link">
+                        <a href="login">Login / Signup</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Contact</p>
+                        <p class="contact-info-header"> +1 315 369 5943</p>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-login" href="login">login / Signup </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<div id="bg-gray">
+    <section class="section section-specialities" style="background-color:whitesmoke">
+        <div class="container-fluid">
+            <div class="section-header text-center">
+                <h2>Clinic and Specialities</h2>
+                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{% static 'media/specialities/specialities-01.png' %}" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Urology</p>
+                    </div>
+                </div>
+                <!-- /Slider Item -->
+                <!-- Slider Item -->
+
+                <div class="col-md-3">
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{% static 'media/specialities/specialities-02.png' %}" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Neurology</p>
+                    </div>
+                </div>
+                <!-- /Slider Item -->
+                <!-- Slider Item -->
+                <div class="col-md-3">
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{% static 'media/specialities/specialities-03.png' %}" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Orthopedic</p>
+                    </div>
+                </div>
+                <!-- /Slider Item -->
+                <!-- Slider Item -->
+                <div class="col-md-3">
+                    <div class="speicality-item text-center">
+                        <div class="speicality-img">
+                            <img src="{% static 'media/specialities/specialities-04.png' %}" alt="Speciality">
+                            <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                        </div>
+                        <p>Cardiologist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Clinic and Specialities -->
+<div>
+    <section>
+        <div>
+            <div>
+                <img src="{% static 'media/search-bg.png' %}">
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
